@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Travel Recommendation</title>
+</head>
+<body>
+    <h1>Welcome to the Travel Recommendation site!</h1>
+    <form method="POST" action="{% url 'results' %}">
+        {% csrf_token %}
+        <label for="gender">Gender:</label><br>
+        <input type="radio" id="male" name="gender" value="남">
+        <label for="male">남</label><br>
+        <input type="radio" id="female" name="gender" value="여">
+        <label for="female">여</label><br>
+        
+        <label for="age">Age:</label><br>
+        <input type="radio" id="10s" name="age" value="15~19세">
+        <label for="10s">10대</label><br>
+        <input type="radio" id="20s" name="age" value="20대">
+        <label for="20s">20대</label><br>
+        <input type="radio" id="30s" name="age" value="30대">
+        <label for="30s">30대</label><br>
+        <input type="radio" id="40s" name="age" value="40대">
+        <label for="40s">40대</label><br>
+        <input type="radio" id="50s" name="age" value="50대">
+        <label for="50s">50대</label><br>
+        <input type="radio" id="60s" name="age" value="60대">
+        <label for="60s">60대</label><br>
+        <input type="radio" id="70s" name="age" value="70대 이상">
+        <label for="70s">70대 이상</label><br>
+
+
+        <label for="companion">Companion:</label><br>
+        <input type="radio" id="family" name="companion" value="가족">
+        <label for="family">가족</label><br>
+        <input type="radio" id="non-family" name="companion" value="비가족">
+        <label for="non-family">비가족</label><br>
+        <!-- Add more options if necessary -->
+
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>
