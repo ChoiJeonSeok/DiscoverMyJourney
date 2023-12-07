@@ -1,0 +1,37 @@
+<!-- 네비게이션바 -->
+<!-- <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom"> -->
+<style>
+    .navbar-toggler{
+        background: none;
+        border: 2px solid #e3f2fd;
+        color: black;
+        padding: 10px 10px;
+        border-radius: 20px;
+        margin-top: 0px;
+        outline: none;
+        cursor: pointer;
+        transition: all .4s;
+    }
+
+    .navbar-toggler:hover{
+        background-color: #e3f2fd;
+    }
+
+        .top{
+            font-size: 25px;
+            font-family: "font2"
+        }
+</style>
+
+<nav class="navbar navbar-light" style="background-color: skyblue; box-shadow: 3px 4px 5px 2px rgb(0 0 0 / 20%); ">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="{% url 'gttour:index' %}">
+            <span class ="top">🧭3조 투어</span>
+        </a>
+            <div class="navbar-toggler" type="button" style="background-color: #e3f2fd; box-shadow: 3px 3px 5px 1px rgb(0 0 0 / 20%);">
+                <button style="background-color: #e3f2fd; border:1px solid #e3f2fd;" onclick="history.back()">&#9194;</button>
+                <button style="background-color: #e3f2fd; border:1px solid #e3f2fd;" onclick="history.forward()">&#9193;</button>
+            </div>
+        </div>
+    </div>
+</nav>

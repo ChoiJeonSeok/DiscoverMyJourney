@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+{% block content %}
+<style>
+    
+    html, body {
+        margin: 0;
+    }
+
+    .main{
+        width: 100%;
+        height: 100vh;
+        margin: 0 auto;
+        background: #e3f2fd;
+        padding: 0;
+        margin: 0;
+    }
+
+    .main .hero{
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+    }
+
+    .main .hero h2{
+        font-size: 70px;
+        margin-bottom: 20px;
+    }
+
+    .main .hero p{
+        font-size: 25px;
+    }
+
+    .main .hero button{
+        background: none;
+        border: 2px solid skyblue;
+        color: black;
+        padding: 15px 20px;
+        border-radius: 20px;
+        margin-top: 30px;
+        outline: none;
+        cursor: pointer;
+        transition: all .4s;
+        
+    }
+
+    .main .hero button:hover{
+        background-color: skyblue;
+        box-shadow: 3px 2px 5px 1px rgb(0 0 0 / 20%);
+    }
+</style>
+
+<div class="main">
+    <div class="hero">
+        <h2><div id="loading-message" style="font-family: font1;">분석중입니다...</div></h2>
+        <h1 style="font-family: font1;">여행지 추천 서비스</h1>
+        
+
+    </div>    
+</div>
+
+<script>
+    // 페이지 로드 시 실행되는 함수
+    window.onload = function () {
+        // 5초 후에 classification:index 페이지로 이동
+        setTimeout(function () {
+            window.location.href = "{% url 'classification:index' %}";
+        }, 3000); // 3초 (3000 밀리초)
+    };
+</script>
+{% endblock %}

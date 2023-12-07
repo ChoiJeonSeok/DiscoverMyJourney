@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+{% block content %}
+<style>
+    html, body {
+        margin: 0;
+    }
+
+    .main{
+        width: 100%;
+        height: 100vh;
+        margin: 0 auto;
+        background: #e3f2fd;
+        padding: 0;
+        margin: 0;
+    }
+
+    .main .hero{
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+    }
+
+    .main .hero h2{
+        font-size: 45px;
+        margin-bottom: 20px;
+    }
+
+    .main .hero p{
+        font-size: 25px;
+    }
+
+    .main .hero button{
+        background: none;
+        border: 2px solid skyblue;
+        color: black;
+        padding: 15px 20px;
+        border-radius: 20px;
+        margin-top: 30px;
+        display: inline-block;
+        outline: none;
+        cursor: pointer;
+        transition: all .4s;
+    }
+
+    .main .hero button:hover{
+        background-color: skyblue;
+        box-shadow: 3px 2px 5px 1px rgb(0 0 0 / 20%);
+    }
+    
+    .link {
+        color: black;
+        font-size: 1.2em;
+        padding: 0.3em 0.5em;
+        margin-right: 0.1em;
+        font-family: 'font1';
+        text-decoration: none;
+    }
+
+    .link:hover {
+        color: skyblue;
+    }
+
+</style>
+
+<meta charset="UTF-8">
+<div class="main">
+    <div class="hero" style="width:1000px; height:500px">
+        <h2 style="font-family: font1;">다음 목록은 설문조사에서 선택한 관심지역이에요!</h2>
+        <h6 style="font-family: font1; font-size: 20px;">지역을 선택하세요!</h6><br>
+        <div style="display: flex; font-size: 4px;">
+            <a href="{% url 'tourlist:surveylist1' %}" class="link"><button type="submit" style="font-family: font3;"><h5>{{ survey_data_list.0.location }}</h5></button></a>
+            <a href="{% url 'tourlist:surveylist2' %}" class="link"><button type="submit" style="font-family: font3;"><h5>{{ survey_data_list.1.location }}</h5></button></a>
+            <a href="{% url 'tourlist:surveylist3' %}" class="link"><button type="submit" style="font-family: font3;"><h5>{{ survey_data_list.2.location }}</h5></button></a>
+        </div>
+    </div>
+</div>
+{% endblock %}

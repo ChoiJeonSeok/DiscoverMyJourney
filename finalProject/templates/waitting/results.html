@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Travel Recommendation Results</title>
+</head>
+<body>
+    <h1>Recommended Places</h1>
+    <ul>
+        {% for place in recommended_places %}
+            <li>{{ place.city }}</li>  <!-- 수정된 부분 -->
+        {% endfor %}
+    </ul>
+    <a href="{% url 'index' %}">Go back</a>
+</body>
+</html>

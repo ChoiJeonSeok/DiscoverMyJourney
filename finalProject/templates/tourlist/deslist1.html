@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+{% block content %}
+<meta charset="UTF-8">
+<style>
+    html, body {
+        margin: 0;
+    }
+
+    .main{
+        width: 100%;
+        height: 100vh;
+        margin: 0 auto;
+        background: #e3f2fd;
+        padding: 0;
+        margin: 0;
+    }
+
+    .main .hero{
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+    }
+
+    .main .hero h2{
+        font-size: 60px;
+        margin-bottom: 20px;
+    }
+
+    .main .hero p{
+        font-size: 25px;
+    }
+</style>
+
+<div class="main">
+    <div class="hero">
+        <h4 style="font-family: font1; font-size: 35px;">다음 목록은 {{ destination_data_list.0.location }} 여행 정보에요</h4><br>
+    
+        <div style="width:1000px; height:500px; border:1px solid skyblue; border-radius: 20px; float:right; margin-right:20px;">
+            <div id="imageContainer" style="width:625px; height:500px; border-right:1px solid skyblue; float:left; margin-right:20px; font-family: font1;">
+                <h3 style="font-size: 22px;"><키워드맵></h3>
+                {% if destination_data_list.0.image %}
+                    <img src="{{ destination_data_list.0.image }}" alt="{{ destination_data_list.0.location }}" style="max-width: 625px; max-height: 450px; border-radius: 20px;">
+                {% else %}
+                    <p>No image</p>
+                {% endif %}
+            </div>
+
+            <div id="tourLocContainer" style="font-family: font1; font-size: 10px;">
+                <br><h3 style="font-size: 22px;"><주요 관광지></h3>
+                <p><a href="https://search.naver.com/search.naver?query={{ destination_data_list.0.tour_loc_1 }}" target="_blank" style="text-decoration: none; color: skyblue"><b>{{ destination_data_list.0.tour_loc_1 }}</b></a></p>
+                <p><a href="https://search.naver.com/search.naver?query={{ destination_data_list.0.tour_loc_2 }}" target="_blank" style="text-decoration: none; color: skyblue"><b>{{ destination_data_list.0.tour_loc_2 }}</b></a></p>
+                <p><a href="https://search.naver.com/search.naver?query={{ destination_data_list.0.tour_loc_3 }}" target="_blank" style="text-decoration: none; color: skyblue"><b>{{ destination_data_list.0.tour_loc_3 }}</b></a></p>
+                <br>
+                <br>
+                <h3 style="font-size: 22px;"><긍정></h3>
+                <p><b>{{ destination_data_list.0.positive }}</b></p>
+                <br>
+                <br>
+                <h3 style="font-size: 22px;"><부정></h3>
+                <p><b>{{ destination_data_list.0.negative }}</b></p>
+            </div>
+    </div>
+</div>
+{% endblock %}
+

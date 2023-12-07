@@ -1,0 +1,14 @@
+@font-face {
+    font-family: "font1";
+    src: url("../fonts/HakgyoansimWoojuR.ttf");
+}
+
+@font-face {
+    font-family: "font2";
+    src: url("../fonts/HakgyoansimBunpilR.ttf");
+}
+
+@font-face {
+    font-family: "font3";
+    src: url("../fonts/hankook_bold.ttf");
+}

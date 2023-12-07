@@ -1,0 +1,146 @@
+{% extends 'base.html' %}
+{% block content %}
+<style>
+    /* *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    } */
+    html, body {
+        margin: 0;
+    }
+
+    .surveybox {
+        width:800px; 
+        height:450px; 
+        border:1px solid skyblue; 
+        border-radius: 20px; 
+        float:right; 
+        margin-right:20px;
+    }
+
+    .classification{
+        width: 100%;
+        height: 100vh;
+        background: #e3f2fd;;
+    }
+    
+    .classification .hero{
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+    }
+
+    .classification .hero h2{
+        font-size: 20px;
+        margin-bottom: 20px;
+    }
+
+    .classification .hero button{
+        background: none;
+        border: 2px solid skyblue;
+        color: black;
+        padding: 15px 20px;
+        border-radius: 20px;
+        margin-top: 30px;
+        outline: none;
+        cursor: pointer;
+        transition: all .4s;
+    }
+
+    .classification .hero button:hover{
+        background-color: skyblue;
+        box-shadow: 3px 2px 5px 1px rgb(0 0 0 / 20%);
+    }
+
+    .hero {
+        display: flex; 
+    }
+
+    .box {
+        width: 300px;
+        height: 300px;
+        border: 2px solid skyblue;
+        border-radius: 20px;
+        margin-right: 20px;
+        padding: 10px;
+    }
+   
+    li {
+        text-align: center; /* 리스트 항목의 텍스트를 왼쪽으로 정렬합니다. */
+        /* 기타 원하는 스타일을 추가로 지정할 수 있습니다. */
+    }
+    .classification .hero .box .small-text {
+        font-size: 16px; /* 원하는 작은 글씨 크기로 설정합니다. */
+        color: black; /* 글씨 색상을 파란색으로 설정합니다. */
+        /* 기타 원하는 스타일을 추가로 지정할 수 있습니다. */
+    }
+</style>
+
+<!-- <div class="surveyresult">
+    <h4 style="font-family: font1;">다음 목록은 관심 지역에 대한 여행 정보에요</h4><br>
+    <div class="surveybox">
+        <li>{{ data.survey_data.myarea_1 }}</li>
+        <li>{{ data.survey_data.myarea_2 }}</li>
+        <li>{{ data.survey_data.myarea_3 }}</li>
+    </div>
+</div> -->
+<!-- 
+<div style="width:1000px; height:500px; border:1px solid skyblue; border-radius: 20px;  float:right; margin-right:20px;">
+    <li>ht</li>
+</div> -->
+
+<div class="classification"><br>
+    <div style="font-family: font1; text-align: center;"><h2>다음은 관심 지역과 추천 여행지 목록입니다!</h2></div><br>
+    <div class="hero">
+        <div class="box">
+            <a href="{% url 'tourlist:surveydest_view'  %}">
+                <button type="submit">
+                    <h3 style="font-family: font3;">관심 지역</h3>
+                </button></a><br>
+                <span class="small-text" style="font-family: font1;">설문조사에서 선택한 지역입니다!</span>       
+            <ul>  
+                <br>  
+                <li>{{ data.survey_data.myarea_1 }}</li>
+                <li>{{ data.survey_data.myarea_2 }}</li>
+                <li>{{ data.survey_data.myarea_3 }}</li>
+            </ul>
+        </div>
+        
+        <div class="box">
+        <a href="{% url 'tourlist:destination_view' %}">
+            <button type="submit">
+                <h3 style="font-family: font3;">유사 장소</h3>
+            </button></a><br>
+            <span class="small-text" style="font-family: font1;">관심지역 3곳과 유사한 장소를 선택합니다!</span>
+            
+        <ul>
+            <br>
+            {% for location in data.destination_data %}
+                <li>{{ location }}</li>
+            {% endfor %}
+        </ul>
+        </div>
+
+        <div class="box">
+        <a href="{% url 'tourlist:similadest_view'  %}">
+            <button type="submit">
+                <h3 style="font-family: font3;">유사 집단</h3>
+            </button></a><br>
+            <span class="small-text" style="font-family: font1;">성별, 연령, 가족 구성을 고려하여 분류합니다!</span>       
+            
+        <ul>  
+            <br>  
+            {% for location in data.similadest_data.place_location %}
+                <li>{{ location }}</li>
+            {% endfor %}
+        </ul>
+        </div>
+    </div>    
+</div>
+
+
+{% endblock %}
